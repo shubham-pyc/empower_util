@@ -1,0 +1,14 @@
+{
+  "manifest_version":2,
+  "name":"empower_utils",
+  "version":"1.0",
+  "content_scripts":[
+    {
+      "matches":["https://empower.impetus.co.in/*"],
+      "js":["jquery-3.3.1.min.js","main.js"]
+    }
+  ]
+  ,
+  "permissions":["declarativeContent","activeTab"]
+
+}
