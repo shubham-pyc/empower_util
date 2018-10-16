@@ -94,7 +94,7 @@ function getTodaysDate(startDate){
 function startup(){
 
   var todaysDate = new Date();
-  todaysDate.setHours(24,0,0,0)
+  todaysDate.setHours(0,0,0,0)
   //todaysDate.setDate(todaysDate.getDate() - 3);
   console.log("todaysDate : "+todaysDate);
   
@@ -105,7 +105,7 @@ function startup(){
   var day = date.getDay();
   var prevMonday = date;
   if(date.getDay() == 0){
-    prevMonday.setDate(date.getDate() - 7);
+    prevMonday.setDate(date.getDate() - 6);
   }
   else{
     prevMonday.setDate(date.getDate() - day);
