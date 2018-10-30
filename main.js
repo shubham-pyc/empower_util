@@ -6,15 +6,15 @@ var div2Id = '#__content11-footer-text';
 function fetchDetails(response){
   var punches = response.querySelectorAll("content properties");
   var lastIn = punches[punches.length -1];
-  var workingHours = lastIn.querySelector('number').innerHTML;
+  var workingHours = lastIn.querySelector('Workinghours').innerHTML;
   var totalWorkingHours = "00:00:00";
 
   var allSwipes = {};
 
   punches.forEach((swipe, index) => {
     if(!allSwipes[swipe.querySelector('Swipedate').innerHTML]){
-      allSwipes[swipe.querySelector('Swipedate').innerHTML] = swipe.querySelector('number').innerHTML;
-      totalWorkingHours = addWorkingHours(totalWorkingHours, swipe.querySelector('number').innerHTML);
+      allSwipes[swipe.querySelector('Swipedate').innerHTML] = swipe.querySelector('Workinghours').innerHTML;
+      totalWorkingHours = addWorkingHours(totalWorkingHours, swipe.querySelector('Workinghours').innerHTML);
     }
   });
 
