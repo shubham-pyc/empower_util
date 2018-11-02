@@ -18,8 +18,6 @@ function fetchDetails(response){
     }
   });
 
-  console.log("totalWorkingHours : "+totalWorkingHours);
-
   var punchType = Number.parseInt(lastIn.querySelector('Channel').innerHTML);
   var punchTime = new Date(lastIn.querySelector('Punchdate').innerHTML)
 
@@ -39,26 +37,24 @@ function fetchDetails(response){
 }
 
 function showTimesOnPage(punchTime, workingHours, totalWorkingHours){
-    //Show Todays Time
-    let time = calculateTime(punchTime,workingHours);
-    var todaysTime = time.getHours()+":"+time.getMinutes()+":"+time.getSeconds();
+    var univarsalDate = new Date('1970-01-01 00:00:00');
+    univarsalDate.setMilliseconds(new Date() - punchTime);
 
-    //Show Week Time
-    time = calculateTime(punchTime,totalWorkingHours); 
-    $(div1Id).html("Todays Time : "+todaysTime);   
-    $(div2Id).html("Weeks Time : "+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+    $(div1Id).html("<span style='font-size: 0.865rem;'>Todays Time : "+addWorkingHours(univarsalDate,workingHours) +'</span>');   
+    $(div2Id).html("<span style='font-size: 0.865rem;'>Weeks Time : "+addWorkingHours(univarsalDate,totalWorkingHours) +'</span>');
 }
 
-function calculateTime(punchTime,workingHours){
-  //console.log("workingHours : "+workingHours);
-  var currentTime = new Date();
-  var timeDifference = (currentTime - punchTime);
-  var currentHours = new Date('1970-01-01 '+workingHours);
-  currentHours = new Date(currentHours.getTime()+timeDifference)
-  return currentHours;
+
+function convertToTimeString(date){
+  return date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 }
 
 function addWorkingHours(workingHour1,workingHour2){
+  if(workingHour1 instanceof Date)
+    workingHour1 = convertToTimeString(workingHour1);
+  if(workingHour2 instanceof Date)
+     workingHour2 = convertToTimeString(workingHour2);
+
   let workingHour1Arr = workingHour1.split(':');
   let workingHour2Arr = workingHour2.split(':');
   let resultWorkingHourArr= [];
@@ -76,6 +72,8 @@ function addWorkingHours(workingHour1,workingHour2){
       resultWorkingHourArr[i] = t;
       carry = 0;
     }
+    if(resultWorkingHourArr[i] < 10)
+      resultWorkingHourArr[i] = '0'+resultWorkingHourArr[i];
   }
   return resultWorkingHourArr.join(":");
 }
@@ -108,7 +106,7 @@ function startup(){
     prevMonday.setDate(date.getDate() - 6);
   }
   else{
-    prevMonday.setDate(date.getDate() - day);
+    prevMonday.setDate(date.getDate() - (day-1));
   }
   console.log("prevMonday : "+prevMonday);
   var startDate = getTodaysDate(prevMonday);  
