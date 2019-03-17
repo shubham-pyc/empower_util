@@ -1,14 +1,24 @@
 {
-  "manifest_version":2,
-  "name":"empower_utils",
-  "version":"1.0",
-  "content_scripts":[
-    {
-      "matches":["https://empower.impetus.co.in/*"],
-      "js":["jquery-3.3.1.min.js","main.js"]
-    }
-  ]
-  ,
-  "permissions":["declarativeContent","activeTab"]
+  "manifest_version": 2,
+  "name": "empower_utils",
+  "version": "1.0",
+  "content_scripts": [{
+    "matches": ["https://empower.impetus.co.in/*"],
+    "js": [
+      "jquery-3.3.1.min.js",
+      "js/lib/create.js",
+      "js/lib/time-utils.js",
+      "js/objects/clock.js",
+      "js/objects/employee.js",
+      "js/objects/assistant.js",
+      "js/containers/timesheetpage.js",
+      "main.js"
+    ],
+    "css":[
+      "css/bootstrap.min.css",
+      "css/style.css"
+    ]
+  }],
+  "permissions": ["declarativeContent", "activeTab"]
 
 }

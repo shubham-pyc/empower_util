@@ -1,0 +1,15 @@
+.clock-box {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    background-color: white;
+}
+
+.clock {
+    position: fixed;
+    right: 58px;
+    top: 58px;
+    background-color: black;
+}
+.assistant-button{
+    margin-top: 30px;
+}
