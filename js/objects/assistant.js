@@ -37,14 +37,14 @@ function Assistant(employee) {
                     var averageWorkingHours = workingHours.averageWorkingHours;
                     $("input[id$=decimalTimeEntryValue-inner]").attr('value', averageWorkingHours);
                 } catch (error) {
-                    if (debug) {
-                        console.error(error);
+                    if (exceptionService){
+                        exceptionService.reportException(error);
                     }
                 }
             })
         } catch (error) {
-            if (debug) {
-                console.error(error);
+            if (exceptionService){
+                exceptionService.reportException(error);
             }
         }
 
@@ -53,7 +53,6 @@ function Assistant(employee) {
     this.injectTimesheetAssistant = function () {
 
         try {
-
             var divId = ".sapMBarRight";
 
             this.updateButton = create({
@@ -77,8 +76,8 @@ function Assistant(employee) {
             this.isInserted = true;
 
         } catch (error) {
-            if (debug) {
-                console.error(error);
+            if (exceptionService){
+                exceptionService.reportException(error);
             }
         }
 

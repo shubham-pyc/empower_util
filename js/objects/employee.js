@@ -26,7 +26,9 @@ function Employee() {
             })
 
         } catch (error) {
-
+            if (exceptionService) {
+                exceptionService.reportException(error);
+            }
         }
 
     }
@@ -41,12 +43,22 @@ function Employee() {
         }
         var SWIPE_URL = `https://empower.impetus.co.in/sap/opu/odata/sap/ZSMARTI_SWIPE_SRV/SmartiSwipeSet?&$filter=LoginId%20eq%20%27${this.emp.id}%27%20and%20Punchfromdate%20eq%20%27${date}%27%20and%20Punchenddate%20eq%20%27${date}%27%20&$orderby=Swipedate`;
 
-        $.ajax({
-            type: 'GET',
-            url: SWIPE_URL,
-            success: callback,
-            error: (err) => console.error(err)
-        })
+        try {
+            $.ajax({
+                type: 'GET',
+                url: SWIPE_URL,
+                success: callback,
+                error: (err) => {
+                    if (exceptionService) {
+                        exceptionService.reportException(error);
+                    }
+                }
+            })
+        } catch (error) {
+            if (exceptionService) {
+                exceptionService.reportException(error);
+            }
+        }
     }
     this.getWorkingHoursBetween = function (start, end, callback) {
         if (!this.emp.id) {
@@ -54,11 +66,22 @@ function Employee() {
         }
         var SWIPE_URL = `https://empower.impetus.co.in/sap/opu/odata/sap/ZSMARTI_SWIPE_SRV/SmartiSwipeSet?&$filter=LoginId%20eq%20%27${this.emp.id}%27%20and%20Punchfromdate%20eq%20%27${start}%27%20and%20Punchenddate%20eq%20%27${end}%27%20&$orderby=Swipedate`;
 
-        $.ajax({
-            type: 'GET',
-            url: SWIPE_URL,
-            success: callback,
-            error: (err) => console.error(err)
-        })
+        try {
+            $.ajax({
+                type: 'GET',
+                url: SWIPE_URL,
+                success: callback,
+                error: (err) => {
+                    if (exceptionService) {
+                        exceptionService.reportException(error);
+                    }
+                }
+            })
+        } catch (error) {
+            if (exceptionService) {
+                exceptionService.reportException(error);
+            }
+        }
+
     }
 }

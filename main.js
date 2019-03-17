@@ -5,12 +5,12 @@ var div2Id = '#__content11-footer-text';
 var dayClock = null;
 var employee = null;
 var assistant = null;
+var exceptionService = null;
 var debug = true;
 var hashes = {
   "home": "#Shell-home",
   "timesheet": "#TimeEntry-manage",
   "manageTimesheets":"#TimeEntry-manage&/detail/"
-
 }
 
 function hashChangeHandler() {
@@ -85,7 +85,8 @@ function setup() {
   dayClock = new Clock();
   employee = new Employee();
   assistant = new Assistant(employee);
-
+  exceptionService = new ExceptionService();
+  
   dayClock.show();
   employee.getDetails();
 

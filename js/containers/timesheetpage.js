@@ -6,8 +6,8 @@ function enhanceTimesheetFormPage() {
     try {
         assistant.injectTimesheetAssistant();
     } catch (error) {
-        if (debug) {
-            console.error(error);
+        if (exceptionService){
+            exceptionService.reportException(error);
         }
     }
 }
@@ -21,8 +21,8 @@ function applyListererToSubmitButton() {
                     console.warn("Create Button Clicked");
                 }
             } catch (error) {
-                if (debug) {
-                    console.error(error);
+                if (exceptionService){
+                    exceptionService.reportException(error);
                 }
             }
         })

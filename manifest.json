@@ -6,6 +6,7 @@
     "matches": ["https://empower.impetus.co.in/*"],
     "js": [
       "jquery-3.3.1.min.js",
+      "js/objects/exception-handler.js",
       "js/lib/create.js",
       "js/lib/time-utils.js",
       "js/objects/clock.js",
