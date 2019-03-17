@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "empower_utils",
-  "version": "1.0",
+  "name": "Enhanced Empower",
+  "version": "2.0",
   "content_scripts": [{
     "matches": ["https://empower.impetus.co.in/*"],
     "js": [
