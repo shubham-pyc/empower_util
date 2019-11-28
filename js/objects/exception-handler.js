@@ -1,9 +1,14 @@
 function ExceptionService() {
-    this.debug = true;
+    this.debug = false;
     this.reportException = function (error) {
-        var methodName = arguments.caller.callee;
-        if (this.debug) {
-            console.error(error);
+        try {
+            var methodName = arguments.caller.callee;
+            if (this.debug) {
+                console.error(error);
+            }
+        }catch(e){
+
         }
+        
     }
 }

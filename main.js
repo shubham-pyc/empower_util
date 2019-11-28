@@ -6,7 +6,7 @@ var dayClock = null;
 var employee = null;
 var assistant = null;
 var exceptionService = null;
-var debug = true;
+var debug = false;
 var hashes = {
   "home": "#Shell-home",
   "timesheet": "#TimeEntry-manage",
@@ -84,7 +84,7 @@ function showTimesOnPage(punchTime, workingHours, totalWorkingHours) {
 function setup() {
   dayClock = new Clock();
   employee = new Employee();
-  assistant = new Assistant(employee);
+  //assistant = new Assistant(employee);
   exceptionService = new ExceptionService();
   
   dayClock.show();

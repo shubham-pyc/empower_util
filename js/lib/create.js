@@ -39,7 +39,7 @@ function create(obj) {
     }
 
     if(settings.parent != undefined){
-        console.warn($(parent));
+        //console.warn($(parent));
         $(parent).append(node);
     }
     return node;
