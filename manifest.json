@@ -2,24 +2,38 @@
   "manifest_version": 2,
   "name": "Enhanced Empower",
   "version": "1.0.0",
-  "content_scripts": [{
-    "matches": ["https://empower.impetus.co.in/*"],
-    "js": [
-      "jquery-3.3.1.min.js",
-      "js/objects/exception-handler.js",
-      "js/lib/create.js",
-      "js/lib/time-utils.js",
-      "js/objects/clock.js",
-      "js/objects/employee.js",
-      "js/objects/assistant.js",
-      "js/containers/timesheetpage.js",
-      "main.js"
-    ],
-    "css":[
-      "css/bootstrap.min.css",
-      "css/style.css"
-    ]
-  }],
-  "permissions": ["declarativeContent", "activeTab"]
-
+  "content_scripts": [
+    {
+      "matches": [
+        "https://empower.impetus.co.in/*"
+      ],
+      "js": [
+        "jquery-3.3.1.min.js",
+        "js/objects/exception-handler.js",
+        "js/lib/create.js",
+        "js/lib/time-utils.js",
+        "js/objects/clock.js",
+        "js/objects/employee.js",
+        "js/objects/assistant.js",
+        "js/containers/timesheetpage.js",
+        "main.js"
+      ],
+      "css": [
+        "css/bootstrap.min.css",
+        "css/style.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "declarativeContent",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "browser_action":{
+    "default_icon":"images/icon128.png"
+  }
 }

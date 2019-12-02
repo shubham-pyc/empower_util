@@ -1,15 +1,39 @@
 .clock-box {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    background-color: white;
+    color: #fff;
+    border: 1px solid #5f5e5e;
+    font-size: 18px;
+    background: #000;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
 }
+
 
 .clock {
     position: fixed;
     right: 58px;
     top: 58px;
-    background-color: black;
+    background: #000;
+    width: 110px;
 }
-.assistant-button{
+
+.assistant-button {
     margin-top: 30px;
 }
+
+
+
+
+
+.clock {
+
+    background: #000;
+
+    width: 110px;
+
+}
+
+
+
+.clock-box {}
